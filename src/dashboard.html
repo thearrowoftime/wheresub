@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhereSub ledger</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Local ledger · nothing leaves this browser</p>
+        <h1>WhereSub</h1>
+        <p class="lede">
+          Track what you subscribe to, what it costs, and when it renews.
+          You add the data. WhereSub never reads mail, history, or bank pages.
+        </p>
+      </div>
+      <dl id="hero-totals" class="hero-totals"></dl>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Subscriptions</h2>
+          <div class="filters">
+            <label>
+              Status
+              <select id="filter-status">
+                <option value="active">Active + trial</option>
+                <option value="all">All</option>
+                <option value="trial">Trial</option>
+                <option value="cancelled">Cancelled</option>
+                <option value="unreviewed">Unreviewed</option>
+              </select>
+            </label>
+            <label>
+              Currency
+              <select id="filter-currency"></select>
+            </label>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Cycle</th>
+              <th>Amount</th>
+              <th>Monthly</th>
+              <th>Renews</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p id="table-empty" class="empty" hidden>No subscriptions yet. Add one on the right.</p>
+      </section>
+
+      <aside class="stack">
+        <form id="editor" class="panel">
+          <h2 id="editor-title">Add subscription</h2>
+          <input type="hidden" name="id" />
+          <label>
+            Name
+            <input name="name" required maxlength="80" placeholder="Spotify" />
+          </label>
+          <label>
+            Or start from a preset
+            <select id="preset">
+              <option value="">Choose a product…</option>
+            </select>
+          </label>
+          <div class="row">
+            <label>
+              Amount
+              <input name="amount" type="number" min="0" step="0.01" required />
+            </label>
+            <label>
+              Currency
+              <input name="currency" maxlength="3" required />
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              Cycle
+              <select name="interval">
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+                <option value="weekly">Weekly</option>
+                <option value="custom">Every N days</option>
+              </select>
+            </label>
+            <label id="custom-days-wrap" hidden>
+              Days
+              <input name="intervalDays" type="number" min="1" step="1" value="30" />
+            </label>
+          </div>
+          <label>
+            Next renewal
+            <input name="nextRenewal" type="date" />
+          </label>
+          <div class="row">
+            <label>
+              Status
+              <select name="status">
+                <option value="active">Active</option>
+                <option value="trial">Trial</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </label>
+            <label>
+              Category
+              <input name="category" maxlength="40" placeholder="work" />
+            </label>
+          </div>
+          <label>
+            Notes
+            <textarea name="notes" rows="3" maxlength="400" placeholder="Family plan, work reimburses this, …"></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit">Save locally</button>
+            <button type="button" id="reset-editor" class="ghost">Clear</button>
+          </div>
+        </form>
+
+        <section class="panel">
+          <h2>Backup</h2>
+          <p class="hint">Export and import stay on your computer. The JSON file is yours.</p>
+          <div class="actions">
+            <button type="button" id="export-btn">Export JSON</button>
+            <label class="file">
+              Import JSON
+              <input id="import-file" type="file" accept="application/json,.json" />
+            </label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Settings</h2>
+          <form id="settings">
+            <label>
+              Default currency
+              <input name="defaultCurrency" maxlength="3" required />
+            </label>
+            <label>
+              Reminder window (days)
+              <input name="reminderDays" type="number" min="1" max="30" />
+            </label>
+            <label>
+              Mark unreviewed after (days)
+              <input name="reviewAfterDays" type="number" min="7" max="365" />
+            </label>
+            <button type="submit">Save settings</button>
+          </form>
+          <button type="button" id="wipe" class="danger">Delete all local data</button>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <a href="privacy.html">Privacy</a>
+      · All data lives in <code>chrome.storage.local</code> on this profile.
+    </footer>
+    <script type="module" src="dashboard.js"></script>
+  </body>
+</html>

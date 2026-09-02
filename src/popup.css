@@ -1,0 +1,161 @@
+:root {
+  color-scheme: light;
+  --ink: #14232c;
+  --muted: #5b6b73;
+  --paper: #f4efe6;
+  --card: #fffdf8;
+  --line: #d9d0c3;
+  --accent: #1b3a4b;
+  --warn: #8a4b2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  padding: 16px 16px 14px;
+  font: 14px/1.45 "Segoe UI", "Iowan Old Style", Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 650;
+}
+
+h1 {
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.text-link {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 10px 8px;
+}
+
+.stat span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stat strong {
+  display: block;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.list em {
+  font-style: normal;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.empty {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.quick-add {
+  display: grid;
+  gap: 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  font: inherit;
+  color: var(--ink);
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 8px;
+}
+
+button {
+  border: 0;
+  background: var(--accent);
+  color: #f4efe6;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.foot {
+  margin: 12px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}

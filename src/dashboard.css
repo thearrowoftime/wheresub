@@ -1,0 +1,238 @@
+:root {
+  color-scheme: light;
+  --ink: #14232c;
+  --muted: #5b6b73;
+  --paper: #f4efe6;
+  --card: #fffdf8;
+  --line: #d9d0c3;
+  --accent: #1b3a4b;
+  --danger: #8a4b2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  font: 16px/1.5 "Segoe UI", "Iowan Old Style", Georgia, serif;
+}
+
+.hero,
+main,
+footer {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 40px 0 24px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: -0.04em;
+}
+
+.lede {
+  max-width: 42ch;
+  color: var(--muted);
+}
+
+.hero-totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.hero-totals div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  min-width: 140px;
+}
+
+.hero-totals dt {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero-totals dd {
+  margin: 6px 0 0;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 20px;
+  padding-bottom: 48px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 18px;
+}
+
+.panel-head,
+.filters,
+.row,
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.panel-head {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 8px 8px 8px 0;
+}
+
+td {
+  padding: 10px 8px 10px 0;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.name-cell small {
+  display: block;
+  color: var(--muted);
+}
+
+.overdue {
+  color: var(--danger);
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  flex: 1;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: var(--ink);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 8px;
+}
+
+button,
+.file {
+  border: 0;
+  background: var(--accent);
+  color: #f4efe6;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.ghost,
+.file {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--line);
+}
+
+.danger {
+  margin-top: 12px;
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.file {
+  position: relative;
+  overflow: hidden;
+}
+
+.file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hint,
+.empty,
+footer {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  padding-bottom: 32px;
+}
+
+a {
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .hero,
+  main {
+    grid-template-columns: 1fr;
+  }
+}

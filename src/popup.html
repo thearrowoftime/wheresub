@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhereSub</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">This device only</p>
+        <h1>WhereSub</h1>
+      </div>
+      <a class="text-link" href="dashboard.html" target="_blank" rel="noreferrer">Open ledger</a>
+    </header>
+
+    <section id="totals" class="totals" aria-live="polite"></section>
+
+    <section>
+      <h2>Upcoming renewals</h2>
+      <ul id="upcoming" class="list"></ul>
+      <p id="upcoming-empty" class="empty" hidden>No renewal dates yet. Add one in the ledger when you know it.</p>
+    </section>
+
+    <form id="quick-add" class="quick-add">
+      <h2>Add in ten seconds</h2>
+      <label>
+        Name
+        <input name="name" type="text" required maxlength="80" placeholder="Netflix" autocomplete="off" />
+      </label>
+      <div class="row">
+        <label>
+          Amount
+          <input name="amount" type="number" min="0" step="0.01" required placeholder="0.00" />
+        </label>
+        <label>
+          Cycle
+          <select name="interval">
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit">Save locally</button>
+    </form>
+
+    <p class="foot">No account. No mail access. Nothing is uploaded.</p>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
